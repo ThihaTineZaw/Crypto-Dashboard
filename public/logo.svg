@@ -1,0 +1,47 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00E5FF" /> <stop offset="100%" stop-color="#7C4DFF" /> </linearGradient>
+
+        <linearGradient id="bgGradient" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" stop-color="#1A237E" />
+            <stop offset="100%" stop-color="#0D1245" />
+        </linearGradient>
+
+         <linearGradient id="btcGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#3949AB" stop-opacity="0.5"/>
+            <stop offset="100%" stop-color="#283593" stop-opacity="0.3"/>
+        </linearGradient>
+    </defs>
+
+    <circle cx="256" cy="256" r="240" fill="url(#bgGradient)" stroke="url(#mainGradient)" stroke-width="8" stroke-opacity="0.5"/>
+    <circle cx="256" cy="256" r="220" fill="none" stroke="#00E5FF" stroke-width="2" stroke-opacity="0.2"/>
+
+    <g stroke="#00E5FF" stroke-width="2" stroke-opacity="0.1" stroke-linecap="round">
+        <path d="M150 100 L 150 150 L 100 150"/>
+        <path d="M360 100 L 360 180 L 420 180"/>
+        <path d="M100 360 L 180 360 L 180 420"/>
+        <path d="M420 300 L 350 300 L 350 400"/>
+        <circle cx="150" cy="100" r="4" fill="#00E5FF" fill-opacity="0.2"/>
+        <circle cx="360" cy="400" r="4" fill="#00E5FF" fill-opacity="0.2"/>
+    </g>
+
+    <g transform="translate(280, 280)" opacity="0.8">
+         <circle cx="60" cy="60" r="50" fill="url(#btcGradient)"/>
+         <path d="M50,35 V85 M50,35 H70 C85,35 85,55 70,55 H50 M50,55 H75 C90,55 90,85 75,85 H50 M45,30 H70 A1,1 0 0 1 70,60 H45 V30 M45,60 H75 A1,1 0 0 1 75,90 H45 V60"
+               stroke="#5C6BC0" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </g>
+
+    <g transform="translate(256, 256) rotate(-45)">
+        <rect x="-110" y="-35" width="160" height="70" rx="35" ry="35" fill="none" stroke="url(#mainGradient)" stroke-width="24"/>
+        <rect x="-50" y="-35" width="160" height="70" rx="35" ry="35" fill="none" stroke="url(#mainGradient)" stroke-width="24"/>
+
+        <path d="M-65,-35 L-40,-35 A35,35 0 0 1 -5,0 A35,35 0 0 1 -40,35 L-65,35"
+               stroke="url(#mainGradient)" stroke-width="24" fill="none" stroke-linecap="round"/>
+    </g>
+
+    <g transform="translate(130, 110)">
+        <path d="M0,60 V30 M20,60 V10 M40,60 V-10" stroke="url(#mainGradient)" stroke-width="8" stroke-linecap="round"/>
+        <path d="M0,0 L60,-40 L50,-15 M60,-40 L35,-30" stroke="url(#mainGradient)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </g>
+</svg>
