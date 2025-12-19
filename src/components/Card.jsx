@@ -4,8 +4,7 @@ const Card = ({coin}) => {
     return ( 
         <div>
            
-        <div className="flex items-center space-x-4">
-            
+        <div className="w-auto h-50 flex items-center space-x-4 mb-2 border bg-slate-200 border-gray-300 px-4 py-3 rounded-lg shadow-md md:h-44 hover:shadow-lg transition-shadow duration-200">
                   <img src={coin.image} alt={coin.name} className="w-12 h-12"/>
                   <div>
                     <h1 className="text-2xl font-semibold">{coin.name}</h1>

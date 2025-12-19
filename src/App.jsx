@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import ErrorCard from "./components/ErrorCard";
-import LoadingCard from "./components/LoadingCard";
-import Searchbox from "./components/Searchbox";
-import Header from "./components/Header";
-import Card from "./components/Card";
-import Limit from "./components/Limit";
+import { Routes } from "react-router";
+import { Route } from "react-router";
+import HomePage from "./pages/home.jsx";
+import AboutUsPage from "./pages/about.jsx";
+import ErrorPage from "./pages/404.jsx";
+import CoinDetailPage from "./pages/CoinDetailPage.jsx";
 
 const App = () => {
   const [coins, setCoins] = useState([]);
@@ -13,15 +13,8 @@ const App = () => {
   const [error, setError] = useState(null);
   const [search, setSearch] = useState("");
   const [limit, setLimit] = useState(10);
+  const [orderBy, setOrderBy] = useState("market_cap_desc");
 
-  // filter search value
-  const searchValue = coins.filter(
-    (coin) =>
-      coin.name.toLowerCase().includes(search.toLowerCase()) ||
-      coin.symbol.toLowerCase().includes(search.toLowerCase())
-  );
-
-  //  api url
   const url = `${import.meta.env.VITE_API_URL
     }order=market_cap_desc&per_page=${limit}&page=1`;
 
@@ -36,7 +29,6 @@ const App = () => {
         setCoins(jsonData);
       } catch (err) {
         setError(err.message);
-        console.log(err);
       } finally {
         setLoading(false);
       }
@@ -45,40 +37,34 @@ const App = () => {
     fetchData();
   }, [limit]);
 
+
+
   return (
-    <>
-      <div className="max-w-9xl flex justify-between items-center p-4 bg-slate-600 text-white shadow-md">
-        <div>
-          <Header />
-        </div>
-      </div>
+    
+      
+       <Routes>
 
-      {loading && <LoadingCard />}
+      <Route path="/"
+        element={<HomePage coins={coins} loading={loading} error={error} search={search} setSearch={setSearch} 
+        limit={limit} setLimit={setLimit} orderBy={orderBy} setOrderBy={setOrderBy}/>}>
+      </Route>
 
-      {error && <ErrorCard error={error} />}
+      <Route path="/about"
+        element={<AboutUsPage />}>
+      </Route>
 
-      <div className="flex justify-end mt-4 mx-4">
-        <Limit limit={limit} setLimit={setLimit} />
-        <Searchbox search={search} setSearch={setSearch} />
-      </div>
+      <Route path="/*"
+        element={<ErrorPage />}>
+      </Route>
 
-      {coins && !loading && !error && (
-        <div className="max-w-9xl mx-auto p-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {searchValue.map((coin) => {
-              return (
-                <div
-                  key={coin.id}
-                  className="bg-white rounded-lg shadow-md p-4"
-                >
-                  <Card coin={coin} />
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
-    </>
+      <Route path='/coin/:id' element={<CoinDetailPage />}>
+
+      </Route>
+
+       </Routes>
+      
+  
+    
   );
 };
 
